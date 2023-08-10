@@ -1,0 +1,41 @@
+<div class="container my-5">
+    <div class="row">
+        <div class="col-md-1 bg-primary">
+            <h3 class="text-light">HMA</h3>
+            <div class="text-center my-5">
+                <i class="fa-solid fa-table-columns"></i>
+                <p class="text-light">Dashboard</p>
+            </div>
+            <div class="text-center mt-2">
+                <i class="fa-regular fa-user"></i>
+                <p class="text-light">Client</p>
+            </div>
+        </div>
+        <div class="col-md-11">
+            <h3>Clients</h3>
+            <div> <span class="bg-secondary">ALL</span> </div>
+            <table class="table table-dark">
+                <thead>
+                    <tr>
+                        <th>Client Id</th>
+                        <th>Company Name</th>
+                        <th>Date</th>
+                        <th>Assigned Member</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let c of allClient[0].records">
+                        <td>{{ c.clientID }}</td>
+                        <td>{{ c.companyName }}</td>
+                        <td>{{ c.createdAt | date}}</td>
+                        <td>{{ c.assignedMembers[0] }}</td>
+                        <td>
+                            <button class="bg-primary" (click)="Detail(c.clientID)">Detail</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
